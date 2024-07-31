@@ -18,8 +18,8 @@ def clean(
 
     # title
     pkg = Color(" zyjared-cli ").white().bg_blue().bold()
-    t = Color(" clean ").white().bg_magenta()
-    r = Color(" → ").green().to_str()
+    title = Color(" clean ").white().bg_magenta()
+    sep = " : "
 
     state = Color(" success ").green() if len(
         removed) != 0 else Color(" no files removed ").magenta()
@@ -28,20 +28,20 @@ def clean(
     end_time = time()
 
     # info
-    prefix_dir = Color("Dir").cyan().to_str()
-    prefix_time = Color("Time").cyan().to_str()
+    prefix_dir = Color("Dir").cyan()
+    prefix_time = Color("Time").cyan()
     duration = f'{str(round((end_time - start_time) * 1000, 2))
                   } {Color("ms").green()}'
 
     # print
 
-    print(f'\n{pkg}{t}{state}')
-    print(f'    {prefix_dir:<16}{r}{dirpath}')
-    print(f'    {prefix_time:<16}{r}{duration}')
+    print(f'\n{pkg}{title}{state}')
+    print(f'    {prefix_dir:<16}{sep}{dirpath}')
+    print(f'    {prefix_time:<16}{sep}{duration}')
 
     # removed files
     if len(removed) != 0:
-        prefix = Color("Removed").yellow().to_str()
+        prefix = Color("Removed").yellow()
         print(f'\n    {prefix:<16}')
         for path in removed:
-            print(f'    {r:>19}{path}')
+            print(f'{sep:>14}{path}')

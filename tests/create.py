@@ -1,5 +1,5 @@
 from pathlib import Path
-
+# from ..zyjared_cli.clean import clean as zy_clean
 
 def create_test():
     files = [
