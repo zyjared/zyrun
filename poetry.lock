@@ -133,13 +133,13 @@ files = [
 
 [[package]]
 name = "zyjared-color"
-version = "0.1.6"
+version = "0.2.0"
 description = "A simple package to convert strings to colored strings using ANSI escape codes"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.11"
 files = [
-    {file = "zyjared_color-0.1.6-py3-none-any.whl", hash = "sha256:6e9ce71ed2f4eef05d5f3870607f49d512d8bbc8fad96d926f7147ec98422bda"},
-    {file = "zyjared_color-0.1.6.tar.gz", hash = "sha256:6311bb867ca40d9c3fecc2462d3c7c251951c3be9128f80ff9eeec5c4252b217"},
+    {file = "zyjared_color-0.2.0-py3-none-any.whl", hash = "sha256:5ae9a1bfa19a92dbabf54b9f19ae160c0e1cfdf2dabd511dac756e8418cb38d3"},
+    {file = "zyjared_color-0.2.0.tar.gz", hash = "sha256:0e8debd4d829f8da4f975a16f1540175f83e77f4e8b186fc8c56d72e436f7e4e"},
 ]
 
 [[package]]
@@ -156,4 +156,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "7c07717f5496ef85155afb8dda2c07a7f7cb8aa6b92e926d9872113546ff00d0"
+content-hash = "7f128b417fa5aada311f38028d50395d2eb2d447eb5cb92f36e00dc6909bd42b"
