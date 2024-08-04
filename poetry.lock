@@ -133,13 +133,13 @@ files = [
 
 [[package]]
 name = "zyjared-color"
-version = "0.2.0"
-description = "A simple package to convert strings to colored strings using ANSI escape codes"
+version = "0.3.1"
+description = "Personal font color utility library for Python"
 optional = false
-python-versions = ">=3.11"
+python-versions = "<4.0,>=3.12"
 files = [
-    {file = "zyjared_color-0.2.0-py3-none-any.whl", hash = "sha256:5ae9a1bfa19a92dbabf54b9f19ae160c0e1cfdf2dabd511dac756e8418cb38d3"},
-    {file = "zyjared_color-0.2.0.tar.gz", hash = "sha256:0e8debd4d829f8da4f975a16f1540175f83e77f4e8b186fc8c56d72e436f7e4e"},
+    {file = "zyjared_color-0.3.1-py3-none-any.whl", hash = "sha256:1063e31fffba9729032ef6d20386087f11afa3f349663340b3cd0d1eaf2cd726"},
+    {file = "zyjared_color-0.3.1.tar.gz", hash = "sha256:0b0efef648dbb6ff7e7308d4192157cc148434eb827e7eb2642c143970626444"},
 ]
 
 [[package]]
@@ -156,4 +156,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "7f128b417fa5aada311f38028d50395d2eb2d447eb5cb92f36e00dc6909bd42b"
+content-hash = "dc525192561cfb4489fd1f3002008a31b122c8c3157cd53c5b06a03507681cb2"
