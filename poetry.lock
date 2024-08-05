@@ -190,13 +190,13 @@ files = [
 
 [[package]]
 name = "zyjared-color"
-version = "0.3.1"
+version = "0.4.0"
 description = "Personal font color utility library for Python"
 optional = false
 python-versions = "<4.0,>=3.12"
 files = [
-    {file = "zyjared_color-0.3.1-py3-none-any.whl", hash = "sha256:1063e31fffba9729032ef6d20386087f11afa3f349663340b3cd0d1eaf2cd726"},
-    {file = "zyjared_color-0.3.1.tar.gz", hash = "sha256:0b0efef648dbb6ff7e7308d4192157cc148434eb827e7eb2642c143970626444"},
+    {file = "zyjared_color-0.4.0-py3-none-any.whl", hash = "sha256:861bcb2c36a09e1776a162e2227f0e9436c261488ddfe51e088c29b12da57804"},
+    {file = "zyjared_color-0.4.0.tar.gz", hash = "sha256:a7c6904cc4533accf7f098f0672703c21d6d9767ea0438d66f8eff370e0b7b9a"},
 ]
 
 [[package]]
@@ -213,4 +213,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "2359fe1d435eeb991443f3d702e7ca654f50f624a292f69964852099be11715f"
+content-hash = "bed36cc0f3153571a89d11b15e87e0e3cbf18ce1b01becdd37a795e33169c4be"
