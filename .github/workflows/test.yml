@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   test:
@@ -21,7 +20,9 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install pytest
+        run: |
+            pip install poetry
+            poetry install
 
       - name: Run tests
-        run: pytest
+        run: poetry run pytest
