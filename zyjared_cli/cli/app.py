@@ -1,5 +1,10 @@
 import typer
 
-__all__ = ["app"]
-
 app = typer.Typer()
+
+
+@app.callback()
+def callback():
+    """
+    zyjared's tool.
+    """
