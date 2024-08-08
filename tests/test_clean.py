@@ -5,10 +5,7 @@ from zyjared_cli.main import app
 runner = CliRunner()
 
 
-def create_files(files=[
-    '01.py',
-    '02.py'
-]):
+def create_files(files=[f'{i}.py' for i in range(1, 20)]):
 
     test = Path.cwd() / 'test'
     if not test.exists():
@@ -28,5 +25,3 @@ def test_app():
 
     assert "1.py" in result.stdout
     assert "2.py" in result.stdout
-
-

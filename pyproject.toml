@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "zyjared-cli"
-version = "0.1.6"
+version = "0.1.7"
 description = "zyjared's cli tool"
 authors = ["zyjared <zyjared@outlook.com>"]
 readme = "README.md"

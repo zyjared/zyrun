@@ -6,7 +6,7 @@ from ..utils.valid import has_true_value
 default_config_path = Path.cwd() / 'zycli.toml'
 
 
-def get_config(cli: str = None, config_path=default_config_path) -> dict:
+def get_config(config_path=default_config_path, cli: str = None, ) -> dict:
     if not config_path.exists():
         return {}
 
@@ -35,5 +35,5 @@ def resolve_config(cli: str = None, config_path=default_config_path, **kwargs):
     if has_true_value(kwargs):
         return kwargs
 
-    config = get_config(cli, config_path)
+    config = get_config(config_path, cli)
     return {**kwargs, **config}

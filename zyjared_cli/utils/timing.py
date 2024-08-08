@@ -6,23 +6,41 @@ import time
 UNITS = ['s', 'ms', 'us', 'ns']
 
 
-def measure_time(
-        func,
-        unit: Literal['s', 'ms', 'us', 'ns'] | Color = 'ms',
-        precision=3
-):
-    start = time.time()
-    result = func()
-    end = time.time()
+def endow_unit(t: int, init_unit: Literal['s', 'ms', 'us', 'ns'] = 's'):
+    i = UNITS.index(init_unit)
 
-    duration = round(
-        (end - start) * (1 * (1000 ** UNITS.index(unit))), precision
-    )
-
-    unit = unit if isinstance(unit, Color) else Color(unit).cyan()
+    for j in range(i, len(UNITS)):
+        if t >= 1:
+            break
+        else:
+            t = t * (1000 ** j)
+            i = j
 
     return {
-        "time": duration,
-        "duration": str(duration) + ' ' + unit,
-        "result": result
+        "time": t,
+        "unit": UNITS[i],
+    }
+
+
+def measure_time(
+        func,
+        precision=2
+):
+    start = time.time()
+
+    try:
+        result = func()
+        sucess = True
+    except Exception as e:
+        result = str(e)
+        sucess = False
+
+    end = time.time()
+
+    endowed = endow_unit(end - start)
+
+    return {
+        "sucess": sucess,
+        "time": str(round(endowed['time'], precision)) + ' ' + Color(endowed['unit']).cyan().italic(),
+        "result": result,
     }
