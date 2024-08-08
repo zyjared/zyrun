@@ -1,0 +1,6 @@
+title = "zyjared-cli"
+
+[clean]
+dirpath = "test"
+include = ["\\d+.py"]
+exclude = ["venv"]

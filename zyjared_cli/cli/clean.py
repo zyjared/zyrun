@@ -1,10 +1,11 @@
 import typer
 from typing import List, Optional, Annotated
-from pathlib import Path
-from time import time
-from .app import app
-from zyjared_color import Color
 from zyjared_fs import clean_directory
+from zyjared_color import Color
+from .app import app
+from ..helpers.config import resolve_config
+from ..utils.timing import measure_time
+from ..helpers.log import log
 
 
 @app.command()
@@ -12,11 +13,10 @@ def clean(
     dirpath: Annotated[
         str,
         typer.Argument(
-            default=...,
             show_default=False,
             help="Specify the directory to clean up.",
         )
-    ],
+    ] = None,
     include: Annotated[
         List[str],
         typer.Option(
@@ -25,7 +25,7 @@ def clean(
             show_default=False,
             help="Regular expression to include files.",
         )
-    ],
+    ] = None,
     exclude: Annotated[
         Optional[List[str]],
         typer.Option(
@@ -38,39 +38,42 @@ def clean(
     """
     Clean up files in a directory with specified include.
     """
-    # -> time
-    start_time = time()
 
-    # clean
-    dirpath = Path(dirpath)
-    removed = clean_directory(dirpath, include, exclude)
+    config = resolve_config(
+        cli='clean',
+        dirpath=dirpath,
+        include=include,
+        exclude=exclude
+    )
 
-    # title
-    pkg = Color(" zyjared-cli ").white().bg_blue().bold()
-    title = Color(" clean ").white().bg_magenta()
-    sep = " : "
+    if not config['dirpath'] or not config['include']:
+        log(
+            'clean',
+            'no files to clean up',
+            dirpath=config['dirpath'],
+            include=config['include'],
+        )
+        raise typer.Exit(1)
 
-    state = Color(" success ").green() if len(
-        removed) != 0 else Color(" no files removed ").magenta()
+    measure = measure_time(
+        lambda: clean_directory(
+            config['dirpath'],
+            config['include'],
+            config['exclude']
+        ),
+        unit='ms'
+    )
 
-    # -> time
-    end_time = time()
-
-    # info
-    prefix_dir = Color("Dir").cyan()
-    prefix_time = Color("Time").cyan()
-    duration = f'{str(round((end_time - start_time) * 1000, 2))
-                  } {Color("ms").green()}'
-
-    # print
-
-    print(f'\n{pkg}{title}{state}')
-    print(f'    {prefix_dir:<16}{sep}{dirpath}')
-    print(f'    {prefix_time:<16}{sep}{duration}')
-
-    # removed files
-    if len(removed) != 0:
-        prefix = Color("Removed").yellow()
-        print(f'\n    {prefix:<16}')
-        for path in removed:
-            print(f'{sep:>14}{path}')
+    if (len(measure['result'])):
+        log(
+            'clean',
+            'success',
+            time=measure['duration'],
+            removed=measure['result'],
+        )
+    else:
+        log(
+            'clean',
+            'fail',
+            time=measure['duration'],
+        )
