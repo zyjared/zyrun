@@ -1,7 +1,6 @@
 import typer
 from typing import List, Optional, Annotated
-from zyjared_fs import clean_directory
-from zyjared_color import Color
+from ..utils.fs import clean_directory
 from .app import app
 from ..helpers.config import resolve_config
 from ..utils.timing import measure_time

@@ -210,18 +210,7 @@ files = [
     {file = "zyjared_color-0.4.1.tar.gz", hash = "sha256:80244394c78bdfe85ee1fb5ef8cdf7aa7867e603a1e1e8d2a5a78a6198d017c0"},
 ]
 
-[[package]]
-name = "zyjared-fs"
-version = "0.1.1"
-description = "simple tools for file or path"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "zyjared_fs-0.1.1-py3-none-any.whl", hash = "sha256:d09d9a0fb7481d144a6adcd91b0fbb97299458916d0a5573482e4e6d5f392a72"},
-    {file = "zyjared_fs-0.1.1.tar.gz", hash = "sha256:4c309e6d11f53caf4e3c91faaeee1321769e9449b07d83c4b064716688026e21"},
-]
-
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "6362fc745607876ae50babbb2586cce060595b33d27795f885d4c87be821db2d"
+content-hash = "b5fbbf807d97869ef21d07b9b1e93ebe66e88a8aaa1d9f19d7e63c65ca5064ef"

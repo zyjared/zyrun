@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "zyjared-cli"
-version = "0.1.5"
+version = "0.1.6"
 description = "zyjared's cli tool"
 authors = ["zyjared <zyjared@outlook.com>"]
 readme = "README.md"
@@ -17,7 +17,6 @@ zycli = "zyjared_cli.main:app"
 [tool.poetry.dependencies]
 python = "^3.12"
 typer = { extras = ["all"], version = "^0.12.3" }
-zyjared-fs = "^0.1.1"
 zyjared-color = "^0.4.1"
 toml = "^0.10.2"
 
